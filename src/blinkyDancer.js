@@ -24,11 +24,17 @@ var BlinkyDancer = function(top, left, timeBetweenSteps) {
   this.setPosition(top, left);
   this.self = this;
   this.step();
-}
+};
+
+
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
 BlinkyDancer.prototype.constructor = BlinkyDancer;
 BlinkyDancer.prototype.step = function(context) {
   context = context || this.self;
   Dancer.prototype.step.call(this.self);
   this.$node.toggle();
-}
+};
+
+var makeBlinkyDancer = function (top, left, timeBetweenSteps) {
+  return new BlinkyDancer(top, left, timeBetweenSteps);
+};

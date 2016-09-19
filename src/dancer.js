@@ -37,17 +37,21 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.setPosition(top, left);
   //this.step();
 
-}
+};
 Dancer.prototype.step = function(context) {
   context = context || this;
   setTimeout(function() {
     context.step(context);
   }, context.timeBetweenSteps);
-}
+};
 Dancer.prototype.setPosition = function(top, left) {
   var styleSettings = {
     top: top,
     left: left
   };
   this.$node.css(styleSettings);
-}
+};
+
+var makeDancer = function (top, left, timeBetweenSteps) {
+  return new Dancer(top, left, timeBetweenSteps);
+};
