@@ -1,5 +1,6 @@
 var ClintonDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this);
+  this.$node = $('<span class="clinton dancer"></span>');
   this.timeBetweenSteps = 100;
   this.setPosition(top, left);
   this.self = this;
@@ -12,7 +13,7 @@ ClintonDancer.prototype.constructor = ClintonDancer;
 ClintonDancer.prototype.step = function(context) {
   context = context || this.self;
   Dancer.prototype.step.call(this.self);
-  this.$node.toggle();
+  // this.$node.toggle();
 };
 
 var makeClintonDancer = function (top, left, timeBetweenSteps) {

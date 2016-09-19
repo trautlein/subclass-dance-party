@@ -3,8 +3,18 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-color: gray;
   font-size: 18px;
+}
+.bg-image{
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.4;
+  background-image: url(assets/johnson.png);
+  background-size: cover;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -21,7 +31,48 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
   position:absolute;
+}
+.sanders{
+  background-image: url(assets/sanders.png);
+  background-size: contain;
+  height: 280px;
+  width: 200px;
+  display: inline-block;
+  animation-name: spin;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(2);
+  }
+  100% {
+    transform: rotate(359deg) scale(1);
+  }
+}
+.clinton{
+  background-image: url(assets/clinton.png);
+  background-size: cover;
+  height: 300px;
+  width: 100px;
+  display: inline-block;
+}
+.clinton:hover{
+  transform: rotateY(180deg);
+  transition: all 0.1s;
+}
+.trump{
+  background-image: url(assets/trump.png);
+  background-size: cover;
+  height: 300px;
+  width: 100px;
+  display: inline-block;
+}
+.trump:hover{
+  transform: rotateY(180deg);
+  transition: all 0.1s;
 }

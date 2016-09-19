@@ -1,5 +1,5 @@
-/*var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
-  var blinkyDancer = makeDancer(top, left, timeBetweenSteps);
+/*var makeJohnsonDancer = function(top, left, timeBetweenSteps) {
+  var JohnsonDancer = makeDancer(top, left, timeBetweenSteps);
 
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
@@ -18,8 +18,9 @@
   return blinkyDancer;
 };*/
 
-var BlinkyDancer = function(top, left, timeBetweenSteps) {
+var SandersDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this);
+  this.$node = $('<span class="sanders dancer"></span>');
   this.timeBetweenSteps = 100;
   this.setPosition(top, left);
   this.self = this;
@@ -27,14 +28,14 @@ var BlinkyDancer = function(top, left, timeBetweenSteps) {
 };
 
 
-BlinkyDancer.prototype = Object.create(Dancer.prototype);
-BlinkyDancer.prototype.constructor = BlinkyDancer;
-BlinkyDancer.prototype.step = function(context) {
+SandersDancer.prototype = Object.create(Dancer.prototype);
+SandersDancer.prototype.constructor = SandersDancer;
+SandersDancer.prototype.step = function(context) {
   context = context || this.self;
   Dancer.prototype.step.call(this.self);
-  this.$node.toggle();
+  //this.$node.toggle();
 };
 
-var makeBlinkyDancer = function (top, left, timeBetweenSteps) {
-  return new BlinkyDancer(top, left, timeBetweenSteps);
+var makeSandersDancer = function (top, left, timeBetweenSteps) {
+  return new SandersDancer(top, left, timeBetweenSteps);
 };
