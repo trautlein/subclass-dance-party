@@ -96,7 +96,7 @@ $(document).ready(function() {
 
       closestTrump.$node[0].style.transform = 'rotateY(180deg)';
 
-      if (Math.random() > 0.5) {
+      if (Math.random() > 0.4) {
         closestTrump.die();
       } else {
         hillarys[j].die();  
