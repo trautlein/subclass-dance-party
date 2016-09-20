@@ -28,6 +28,15 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     dancers.push(dancer);
+
+
+    $('.sanders').on('mouseover', function (event) {
+      //console.log(event.target.style.animation);
+      event.target.style.animationPlayState = 'paused';
+      event.target.style.animationName = 'tiny-spin';
+      event.target.style.animationPlayState = 'running';
+    });
+
   });
 
 
@@ -51,5 +60,7 @@ $(document).ready(function() {
       trumps[i].$node[0].style.top = `${i * 30 + 50}px`;     
     }
   });
+
+
 });
 

@@ -21,7 +21,7 @@ body, a:link, a:visited, a:active{
   /*color: lightblue;*/
 }
 .title, .addDancerButton, .line-up-button{
-  background-color: grey;
+  background-color: #adaaaa;
   color: black;
   padding: 5px 12px 5px 12px;
   margin: 6px 3px;
@@ -65,18 +65,44 @@ body, a:link, a:visited, a:active{
   animation-name: spin;
   animation-duration: 10s;
   animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
 }
 @keyframes spin {
   0% {
     transform: rotate(0deg) scale(1);
   }
+  25% {
+    transform: rotate(90deg) scale(1.5);
+  }
   50% {
     transform: rotate(180deg) scale(2);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.5);
   }
   100% {
     transform: rotate(359deg) scale(1);
   }
 }
+
+@keyframes tiny-spin {
+    0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(0.5);
+  }
+  50% {
+    transform: rotate(180deg) scale(.25);
+  }
+  75% {
+    transform: rotate(270deg) scale(0.5);
+  }
+  100% {
+    transform: rotate(359deg) scale(1);
+  }
+}
+
 .clinton{
   background-image: url(assets/clinton.png);
   background-size: cover;
