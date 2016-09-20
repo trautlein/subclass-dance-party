@@ -29,5 +29,27 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
     dancers.push(dancer);
   });
+
+
+  $('.line-up-button').on('click', function (event) {
+    var hillarys = [];
+    var trumps = [];
+    for (var i = 0; i < dancers.length; i++) {
+      if (dancers[i].$node.hasClass('clinton')) {
+        hillarys.push(dancers[i]);
+      }
+      if (dancers[i].$node.hasClass('trump')) {
+        trumps.push(dancers[i]);
+      }
+    }
+    for (var i = 0; i < hillarys.length; i++) {
+      hillarys[i].$node[0].style.left = `${200 - i * 25}px`;
+      hillarys[i].$node[0].style.top = `${i * 30 + 50}px`;     
+    }
+    for (var i = 0; i < trumps.length; i++) {
+      trumps[i].$node[0].style.left = `${600 + i * 25}px`;
+      trumps[i].$node[0].style.top = `${i * 30 + 50}px`;     
+    }
+  });
 });
 

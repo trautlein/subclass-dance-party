@@ -4,7 +4,8 @@ body, html{
 body{
   margin: 0px;
   background-color: gray;
-  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
 }
 .bg-image{
   position: absolute;
@@ -17,14 +18,35 @@ body{
   background-size: cover;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  /*color: lightblue;*/
 }
-.title, .addDancerButton{
-  padding:5px 12px;
-  float:right;
+.title, .addDancerButton, .line-up-button{
+  background-color: grey;
+  color: black;
+  padding: 5px 12px 5px 12px;
+  margin: 6px 3px;
+  border-radius: 5px;
+  float: right;
+  text-decoration: none;
 }
+
+.clinton-button{
+  background-color: blue;
+  color: #ca0000;
+}
+
+.sanders-button{
+  background-color: white;
+}
+
+.trump-button{
+  background-color: red;
+  color: blue;
+
+}
+
 .topbar{
-  height:32px;
+  height:42px;
   background-color: #555;
 }
 .title{
@@ -32,6 +54,7 @@ body, a:link, a:visited, a:active{
 }
 .dancer{
   position:absolute;
+  transition: all 1s ease;
 }
 .sanders{
   background-image: url(assets/sanders.png);
