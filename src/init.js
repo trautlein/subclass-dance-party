@@ -22,8 +22,8 @@ $(document).ready(function() {
 
     // make a dancer with a random position
     var dancer = dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
+      ($('body').height() - 300 ) * Math.random(),
+      ($('body').width() - 150) * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
@@ -36,6 +36,9 @@ $(document).ready(function() {
       event.target.style.animationName = 'tiny-spin';
       event.target.style.animationPlayState = 'running';
     });
+
+
+    
 
   });
 
@@ -58,6 +61,46 @@ $(document).ready(function() {
     for (var i = 0; i < trumps.length; i++) {
       trumps[i].$node[0].style.left = `${600 + i * 25}px`;
       trumps[i].$node[0].style.top = `${i * 30 + 50}px`;     
+    }
+  });
+
+  $('.battle-button').on('click', function (event) {
+    var hillarys = [];
+    var trumps = [];
+    var usedTrumps = [];
+    var closest;
+    var closestTrump;
+
+    for (var i = 0; i < dancers.length; i++) {
+      if (dancers[i].$node.hasClass('clinton')) {
+        hillarys.push(dancers[i]);
+      }
+      if (dancers[i].$node.hasClass('trump')) {
+        trumps.push(dancers[i]);
+      }
+    }
+
+    for (var j = 0; j < hillarys.length && j < trumps.length; j++) {
+      closest = Infinity;
+      for (var k = 0; k < trumps.length; k++) {
+        if (Math.abs(Number.parseInt(trumps[k].$node[0].style.top) - Number.parseInt(hillarys[j].$node[0].style.top)) < closest ) {
+          if (usedTrumps.indexOf(trumps[k].uniqueId) === -1) {
+            closest = trumps[k].$node[0].style.top;
+            closestTrump = trumps[k];
+            usedTrumps.push(closestTrump.uniqueId);
+          }
+        }
+      }
+      closestTrump.$node[0].style.top = (Number.parseInt(hillarys[j].$node[0].style.top) + 10) + 'px';
+      closestTrump.$node[0].style.left = (Number.parseInt(hillarys[j].$node[0].style.left) + 100) + 'px';
+
+      closestTrump.$node[0].style.transform = 'rotateY(180deg)';
+
+      if (Math.random() > 0.5) {
+        closestTrump.die();
+      } else {
+        hillarys[j].die();  
+      }
     }
   });
 
