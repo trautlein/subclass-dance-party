@@ -1,5 +1,5 @@
 class Dancer {
-  constructor(top, left, timeBetweenSteps) {
+  constructor(top, left, timeBetweenSteps = 100) {
     this.$node = $('<span class="dancer"></span>');
     this.timeBetweenSteps = timeBetweenSteps;
     this.setPosition(top, left);
@@ -10,6 +10,17 @@ class Dancer {
       context.step(context);
     }, context.timeBetweenSteps);
   }
+  die() {
+    var context = this;
+    setTimeout(function() {
+      context.$node[0].style.transition = 'all 1s';
+      context.$node[0].style.transform = context.deathRotate;
+      context.$node[0].style.top = (parseInt(context.$node[0].style.top) + 120) + 'px';
+      setTimeout(function() {
+        context.$node[0].style.transform = 'rotate(-90deg) scale(0.01)';
+      }, 1000);
+    }, Math.max(Math.floor(Math.random() * 2000), 900));
+  }
   setPosition(top, left) {
     var styleSettings = {
       top: top,
@@ -18,29 +29,3 @@ class Dancer {
     this.$node.css(styleSettings);
   }
 }
-
-/*
-var Dancer = function(top, left, timeBetweenSteps) {
-  this.$node = $('<span class="dancer"></span>');
-  this.timeBetweenSteps = timeBetweenSteps;
-  this.setPosition(top, left);
-  //this.step();
-
-};
-Dancer.prototype.step = function(context) {
-  context = context || this;
-  setTimeout(function() {
-    context.step(context);
-  }, context.timeBetweenSteps);
-};
-Dancer.prototype.setPosition = function(top, left) {
-  var styleSettings = {
-    top: top,
-    left: left
-  };
-  this.$node.css(styleSettings);
-};
-
-var makeDancer = function (top, left, timeBetweenSteps) {
-  return new Dancer(top, left, timeBetweenSteps);
-};*/
