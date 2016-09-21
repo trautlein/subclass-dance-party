@@ -6,6 +6,7 @@ class Dancer {
     this.speed = speed;
     this.angle = angle;
     this.life = life;
+    this.timer = 0;
   }
   step(context) {
     context = context || this;
@@ -15,7 +16,7 @@ class Dancer {
   }
   die() {
     var context = this;
-    setTimeout(function() {
+    this.timer = setTimeout(function() {
       context.$node[0].style.transition = 'all 1s';
       context.$node[0].style.transform = context.deathRotate;
       if (!context.$node[0].classList.contains('small')) { 
@@ -24,6 +25,7 @@ class Dancer {
       setTimeout(function() {
         context.$node[0].style.transform = 'rotate(-90deg) scale(0.01)';
       }, 1000);
+      setTimeout(function() { context.$node.remove(); }, 2000);
     }, Math.max(Math.floor(Math.random() * 2000), 900));
   }
   setPosition(top, left) {

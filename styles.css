@@ -48,6 +48,7 @@ body, a:link, a:visited, a:active{
 .topbar{
   height:42px;
   background-color: #555;
+  z-index: 1000000;
 }
 .title{
   background-color: #777;
@@ -109,6 +110,7 @@ body, a:link, a:visited, a:active{
   height: 300px;
   width: 100px;
   display: inline-block;
+  z-index: -1;
 }
 .small {
   height: 100px;
