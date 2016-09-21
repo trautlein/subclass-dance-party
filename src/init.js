@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.clintonEmitters = [];
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -37,8 +38,6 @@ $(document).ready(function() {
       event.target.style.animationPlayState = 'running';
     });
 
-
-    
 
   });
 
@@ -104,6 +103,8 @@ $(document).ready(function() {
     }
   });
 
-
+  $('.clinton-emitter-button').on('click', function(event) {
+    window.clintonEmitters.push(new ClintonEmitter());
+  });
 });
 

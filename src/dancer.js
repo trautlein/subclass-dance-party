@@ -1,8 +1,11 @@
 class Dancer {
-  constructor(top, left, timeBetweenSteps = 100) {
+  constructor(top, left, timeBetweenSteps = 1000, speed = 2, angle = 90, life = 100) {
     this.$node = $('<span class="dancer"></span>');
     this.timeBetweenSteps = timeBetweenSteps;
     this.setPosition(top, left);
+    this.speed = speed;
+    this.angle = angle;
+    this.life = life;
   }
   step(context) {
     context = context || this;
@@ -15,7 +18,9 @@ class Dancer {
     setTimeout(function() {
       context.$node[0].style.transition = 'all 1s';
       context.$node[0].style.transform = context.deathRotate;
-      context.$node[0].style.top = (parseInt(context.$node[0].style.top) + 120) + 'px';
+      if (!context.$node[0].classList.contains('small')) { 
+        context.$node[0].style.top = (parseInt(context.$node[0].style.top) + 120) + 'px';
+      }
       setTimeout(function() {
         context.$node[0].style.transform = 'rotate(-90deg) scale(0.01)';
       }, 1000);
